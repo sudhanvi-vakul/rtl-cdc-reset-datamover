@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module async_fifo #(
     parameter int DATA_W = 8,
     parameter int ADDR_W = 4

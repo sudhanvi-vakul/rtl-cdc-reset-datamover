@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module sync_2ff #(
     parameter bit RESET_VALUE = 1'b0
 ) (

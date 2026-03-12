@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module reset_sync (
     input  logic clk,
     input  logic arst_n,
