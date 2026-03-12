@@ -1,8 +1,32 @@
-# Commands Guide
+# Commands
 
-This file records the exact commands used to set up, run, and inspect this repository on the server.
+## Environment
+Server: Nobel
+Shell: csh/tcsh
+Simulator: XSim (Vivado 2019.2)
 
-## 1. Go to the repo
+## Repo location
+/home/vsudhanvi/rtl-cdc-reset-datamover
 
-```bash
-cd ~/rtl-productivity-cicd-toolkit
+## Smoke run
+python3 -m scripts.run --tool xsim --suite smoke --test async_fifo --waves
+
+## Latest report folder in csh
+set latest=`ls -td reports/run_* | head -1`
+echo $latest
+
+## List generated artifacts
+find $latest -maxdepth 2 -type f | sort
+
+## Find waveform
+find $latest -name "*.wdb"
+
+## Open waveform
+xsim $latest/work.sim.wdb &
+
+## Check simulator processes
+ps -u $USER | grep xsim | grep -v grep
+
+## Git status
+git status
+git log --oneline -n 3
