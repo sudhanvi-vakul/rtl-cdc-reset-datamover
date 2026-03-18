@@ -52,15 +52,24 @@ This prevents unsafe reset release behavior in multi-clock logic.
 ## Repository Structure
 ```text
 rtl-cdc-reset-mover/
-├── rtl/
-│   ├── sync_2ff.sv
-│   ├── reset_sync.sv
-│   └── async_fifo.sv
-├── tb/
-│   ├── async_fifo_tb.sv
-│   └── assertions/
-├── scripts/
-├── docs/
-├── reports/
+├── ci/                       
+├── docs/                     
 ├── evidence/
-└── tests.yaml
+│   └── waveforms/            
+├── reports/
+│   └── logs/                 
+├── rtl/
+│   ├── async_fifo.sv        
+│   ├── reset_sync.sv         
+│   └── sync_2ff.sv           
+├── scripts/                 
+├── tb/
+│   ├── assertions/         
+│   ├── async_fifo_tb.sv
+|   ├── async_fifo_integrated_tb.sv    
+│   └── tests/            
+├── tests/                
+├── tools/            
+├── README.md             
+├── requirements.txt   
+└── tests.yaml 

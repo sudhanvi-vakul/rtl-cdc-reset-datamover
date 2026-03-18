@@ -1,11 +1,11 @@
 smoke:
   - name: async_fifo
-    top: async_fifo_tb
+    top: async_fifo_integrated_tb
     rtl:
       - rtl/sync_2ff.sv
       - rtl/reset_sync.sv
       - rtl/async_fifo.sv
     tb:
-      - tb/async_fifo_tb.sv
+      - tb/async_fifo_integrated_tb.sv
     defines: []
     plusargs: []
