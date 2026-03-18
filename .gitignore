@@ -1,25 +1,63 @@
-# Python
-__pycache__/
-*.pyc
-.venv/
-venv/
-
-# OS / Editor
-.DS_Store
-Thumbs.db
-.vscode/
-.idea/
-
 # Simulation outputs
 work/
-xsim.dir/
-*.log
-*.jou
 *.wlf
 *.vcd
 *.fst
 *.vpd
 *.ucdb
 
-# Generated artifacts (we’ll still upload in CI)
+# Generated artifacts 
 reports/run_*/
+
+# Python
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+.venv/
+venv/
+env/
+.pytest_cache/
+
+# Editor / OS
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs / temp
+*.log
+*.tmp
+*.bak
+
+# Xilinx / XSim / Vivado generated
+xsim.dir/
+*.jou
+*.pb
+*.str
+*.xpr
+*.Xil/
+*.xilwvdat
+webtalk*.log
+webtalk*.jou
+vivado*.log
+vivado*.jou
+xelab*.log
+xvlog*.log
+xsim*.log
+
+# Generated report runs
+reports/run_*/
+
+# Calibre runsets
+.runset.calibre.*
+
+# Keep everything in evidence
+!evidence/
+!evidence/**
+!evidence/**/*.xilwvdat
+!evidence/**/*.wdb
+!evidence/**/*.wcfg
