@@ -30,3 +30,7 @@ ps -u $USER | grep xsim | grep -v grep
 ## Git status
 git status
 git log --oneline -n 3
+
+## GUI Forwarding
+
+xsim --gui reports/<run_log>/work.sim.wdb

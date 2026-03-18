@@ -30,53 +30,53 @@ evidence/waveforms/
 
 ### Reset Behavior
 
-| Check | Expected | Result |
-|------|---------|--------|
-| FIFO enters empty state after reset | empty = 1 | TODO |
-| FIFO not full after reset | full = 0 | TODO |
-| Write pointer reset | wr_ptr_bin = 0 | TODO |
-| Read pointer reset | rd_ptr_bin = 0 | TODO |
+| Check                               | Expected       | Result |
+|-------------------------------------|----------------|--------|
+| FIFO enters empty state after reset | empty = 1      | PASS   |
+| FIFO not full after reset           | full = 0       | PASS   |
+| Write pointer reset                 | wr_ptr_bin = 0 | PASS   |
+| Read pointer reset                  | rd_ptr_bin = 0 | PASS   |
 
 Screenshot  
 evidence/waveforms/async_fifo_reset_state.png
-
+referred to report -> 
 ---
 
 ### First Write Operation
 
-| Check | Expected | Result |
-|------|---------|--------|
-| Write occurs on write clock edge | wr_clk edge triggers pointer increment | TODO |
-| Write pointer increments | wr_ptr_bin increases by 1 | TODO |
-| Data accepted when not full | write accepted | TODO |
-| Empty flag eventually deasserts | empty transitions to 0 | TODO |
+| Check                            | Expected                               | Result |
+|----------------------------------|----------------------------------------|--------|
+| Write occurs on write clock edge | wr_clk edge triggers pointer increment | PASS   |
+| Write pointer increments         | wr_ptr_bin increases by 1              | PASS   |
+| Data accepted when not full      | write accepted                         | PASS   |
+| Empty flag eventually deasserts  | empty transitions to 0 eventually      | PASS   |
 
 Screenshot  
-evidence/waveforms/async_fifo_first_write.png
-
+evidence/waveforms/async_fifo_first_write1.png
+evidence/waveforms/async_fifo_first_write2.png
 ---
 
 ### First Read Operation
 
-| Check | Expected | Result |
-|------|---------|--------|
-| Read occurs on read clock edge | rd_clk edge triggers pointer increment | TODO |
-| Read pointer increments | rd_ptr_bin increases by 1 | TODO |
-| Read data equals first written value | data integrity preserved | TODO |
-| FIFO returns to empty after drain | empty becomes 1 | TODO |
+| Check                                | Expected                               | Result |
+|--------------------------------------|----------------------------------------|--------|
+| Read occurs on read clock edge       | rd_clk edge triggers pointer increment | PASS   |
+| Read pointer increments              | rd_ptr_bin increases by 1              | PASS   |
+| Read data equals first written value | data integrity preserved               | PASS   |
+| FIFO returns to empty after drain    | empty becomes 1 eventually             | PASS   |
 
 Screenshot  
-evidence/waveforms/async_fifo_first_read.png
-
+evidence/waveforms/async_fifo_first_read1.png
+evidence/waveforms/async_fifo_first_read2.png
 ---
 
 ### Full Condition
 
-| Check | Expected | Result |
-|------|---------|--------|
-| FIFO eventually asserts full | full = 1 | TODO |
-| Writes blocked when full | no pointer corruption | TODO |
-| No invalid writes accepted | memory stable | TODO |
+| Check                        | Expected              | Result |
+|------------------------------|-----------------------|--------|
+| FIFO eventually asserts full | full = 1              | TODO   |
+| Writes blocked when full     | no pointer corruption | TODO   |
+| No invalid writes accepted   | memory stable         | TODO   |
 
 Screenshot  
 evidence/waveforms/async_fifo_full_condition.png
@@ -85,10 +85,10 @@ evidence/waveforms/async_fifo_full_condition.png
 
 ### Empty Condition
 
-| Check | Expected | Result |
-|------|---------|--------|
-| FIFO asserts empty after final read | empty = 1 | TODO |
-| Additional reads ignored | pointer remains stable | TODO |
+| Check                               | Expected               | Result |
+|-------------------------------------|------------------------|--------|
+| FIFO asserts empty after final read | empty = 1              | TODO   |
+| Additional reads ignored            | pointer remains stable | TODO   |
 
 Screenshot  
 evidence/waveforms/async_fifo_empty_condition.png
@@ -97,11 +97,11 @@ evidence/waveforms/async_fifo_empty_condition.png
 
 ### CDC Behavior
 
-| Check | Expected | Result |
-|------|---------|--------|
-| Write domain changes propagate to read domain after sync delay | expected CDC latency | TODO |
-| Read domain changes propagate to write domain after sync delay | expected CDC latency | TODO |
-| No metastability artifacts visible in simulation | stable transitions | TODO |
+| Check                                                          | Expected             | Result |
+|----------------------------------------------------------------|----------------------|--------|
+| Write domain changes propagate to read domain after sync delay | expected CDC latency | PASS   |
+| Read domain changes propagate to write domain after sync delay | expected CDC latency | PASS   |
+| No metastability artifacts visible in simulation               | stable transitions   | PASS   |
 
 Screenshot  
 evidence/waveforms/async_fifo_cdc_sync.png
