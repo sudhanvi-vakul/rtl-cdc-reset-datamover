@@ -9,6 +9,11 @@ work/
 # Generated artifacts 
 reports/run_*/
 
+# Local cadence files
+.cdsinit
+cds.lib
+lib.defs
+
 # Python
 __pycache__/
 *.py[cod]
