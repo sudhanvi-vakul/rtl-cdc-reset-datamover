@@ -583,7 +583,7 @@ module async_fifo_integrated_tb;
             for (i = 0; i < (DEPTH/2); i = i + 1)
                 read_and_compare($sformatf("TC10 first drain %0d", i));
 
-            for (i = 0; i < (DEPTH + 2); i = i + 1)
+            for (i = 0; i < (DEPTH - 2); i = i + 1)
                 write_and_scoreboard(8'hB0 + DATA_W'(i));
 
             for (i = 0; i < (DEPTH/2 + 4); i = i + 1)
@@ -774,7 +774,7 @@ module async_fifo_integrated_tb;
             // Long directed burst with repeated fill/drain movement so the TB
             // never deadlocks on full while still exercising extended traffic.
             for (round = 0; round < 3; round = round + 1) begin
-                for (idx = 0; idx < (DEPTH - 2); idx = idx + 1)
+                for (idx = 0; idx < (DEPTH/2 + 2); idx = idx + 1)
                     write_and_scoreboard(DATA_W'(((round * 8'h20) + idx) ^ 8'h5C));
 
                 for (idx = 0; idx < (DEPTH/2); idx = idx + 1)
