@@ -5,6 +5,7 @@ smoke:
       - rtl/sync_2ff.sv
       - rtl/reset_sync.sv
       - rtl/async_fifo.sv
+      - rtl/async_fifo_reset_safe.sv
     tb:
       - tb/async_fifo_integrated_tb.sv
     defines: []
