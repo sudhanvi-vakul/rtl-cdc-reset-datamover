@@ -32,5 +32,9 @@ git status
 git log --oneline -n 3
 
 ## GUI Forwarding
-
 xsim --gui reports/<run_log>/work.sim.wdb
+
+## Check run logs
+latest=$(ls -td reports/run_* | head -1)
+echo $latest
+grep -nE "TC[0-9][0-9]|FAIL|ERROR|MISMATCH|PASS" "$latest/xsim.log"

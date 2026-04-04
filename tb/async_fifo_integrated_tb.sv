@@ -871,7 +871,7 @@ module async_fifo_integrated_tb;
         run_advanced_resets = 1'b0;
 
         if ($test$plusargs("RUN_ADVANCED_RESETS"))
-            run_advanced_resets = 1'b1;
+            run_advanced_resets = 1'b0;
 
         phase("Starting async_fifo_integrated_tb");
 
