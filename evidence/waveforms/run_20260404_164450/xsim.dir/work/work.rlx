@@ -1,0 +1,9 @@
+0.6
+2019.2
+Nov  6 2019
+21:42:20
+/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/async_fifo.sv,1773283864,systemVerilog,,/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/async_fifo_reset_safe.sv,,async_fifo,,,,,,,,
+/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/async_fifo_reset_safe.sv,1775220598,systemVerilog,,/home/vsudhanvi/rtl-cdc-reset-datamover/tb/async_fifo_integrated_tb.sv,,async_fifo_reset_safe,,,,,,,,
+/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/reset_sync.sv,1773283891,systemVerilog,,/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/async_fifo.sv,,reset_sync,,,,,,,,
+/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/sync_2ff.sv,1773283900,systemVerilog,,/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/reset_sync.sv,,sync_2ff,,,,,,,,
+/home/vsudhanvi/rtl-cdc-reset-datamover/tb/async_fifo_integrated_tb.sv,1775339067,systemVerilog,,,,async_fifo_integrated_tb,,,,,,,,

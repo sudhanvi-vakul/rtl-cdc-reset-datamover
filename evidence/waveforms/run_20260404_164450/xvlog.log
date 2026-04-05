@@ -1,0 +1,10 @@
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/sync_2ff.sv" into library work
+INFO: [VRFC 10-311] analyzing module sync_2ff
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/reset_sync.sv" into library work
+INFO: [VRFC 10-311] analyzing module reset_sync
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/async_fifo.sv" into library work
+INFO: [VRFC 10-311] analyzing module async_fifo
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vsudhanvi/rtl-cdc-reset-datamover/rtl/async_fifo_reset_safe.sv" into library work
+INFO: [VRFC 10-311] analyzing module async_fifo_reset_safe
+INFO: [VRFC 10-2263] Analyzing SystemVerilog file "/home/vsudhanvi/rtl-cdc-reset-datamover/tb/async_fifo_integrated_tb.sv" into library work
+INFO: [VRFC 10-311] analyzing module async_fifo_integrated_tb

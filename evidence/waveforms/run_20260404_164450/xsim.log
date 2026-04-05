@@ -1,0 +1,436 @@
+#-----------------------------------------------------------
+# xsim v2019.2 (64-bit)
+# SW Build 2708876 on Wed Nov  6 21:39:14 MST 2019
+# IP Build 2700528 on Thu Nov  7 00:09:20 MST 2019
+# Start of session at: Sat Apr  4 16:44:56 2026
+# Process ID: 62214
+# Current directory: /home/vsudhanvi/rtl-cdc-reset-datamover/reports/run_20260404_164450
+# Command line: xsim -mode tcl -source {xsim.dir/work.sim/xsim_script.tcl}
+# Log file: /home/vsudhanvi/rtl-cdc-reset-datamover/reports/run_20260404_164450/xsim.log
+# Journal file: /home/vsudhanvi/rtl-cdc-reset-datamover/reports/run_20260404_164450/xsim.jou
+#-----------------------------------------------------------
+source xsim.dir/work.sim/xsim_script.tcl
+# xsim {work.sim} -autoloadwcfg -tclbatch {/home/vsudhanvi/rtl-cdc-reset-datamover/reports/run_20260404_164450/run.tcl} -onfinish quit -onerror quit
+Vivado Simulator 2019.2
+Time resolution is 1 ps
+source /home/vsudhanvi/rtl-cdc-reset-datamover/reports/run_20260404_164450/run.tcl
+## log_wave -r /
+WARNING: [Simtcl 6-197] One or more HDL objects could not be logged because of object type or size limitations.  To see details please rerun the command with -verbose (-v).
+## run all
+
+--------------------------------------------------
+Starting async_fifo_integrated_tb
+--------------------------------------------------
+
+--------------------------------------------------
+TC01 Reset Default State
+--------------------------------------------------
+
+--------------------------------------------------
+TC02 Reset Synchronizer Deassertion
+--------------------------------------------------
+
+--------------------------------------------------
+TC03 Single Write Single Read
+--------------------------------------------------
+[WRITE] t=645000 data=0xa5 full=0 empty=1
+[READ ] t=708000 data=0xa5 full=0 empty=1
+
+--------------------------------------------------
+TC04 Multiple Write Multiple Read
+--------------------------------------------------
+[WRITE] t=955000 data=0x11 full=0 empty=1
+[WRITE] t=975000 data=0x22 full=0 empty=1
+[WRITE] t=995000 data=0x33 full=0 empty=0
+[WRITE] t=1015000 data=0x44 full=0 empty=0
+[READ ] t=1030000 data=0x11 full=0 empty=0
+[READ ] t=1058000 data=0x22 full=0 empty=0
+[READ ] t=1086000 data=0x33 full=0 empty=0
+[READ ] t=1114000 data=0x44 full=0 empty=1
+
+--------------------------------------------------
+TC05 Fill Until Full
+--------------------------------------------------
+[WRITE] t=1345000 data=0x30 full=0 empty=1
+[WRITE] t=1365000 data=0x31 full=0 empty=1
+[WRITE] t=1385000 data=0x32 full=0 empty=0
+[WRITE] t=1405000 data=0x33 full=0 empty=0
+[WRITE] t=1425000 data=0x34 full=0 empty=0
+[WRITE] t=1445000 data=0x35 full=0 empty=0
+[WRITE] t=1465000 data=0x36 full=0 empty=0
+[WRITE] t=1485000 data=0x37 full=0 empty=0
+[WRITE] t=1505000 data=0x38 full=0 empty=0
+[WRITE] t=1525000 data=0x39 full=0 empty=0
+[WRITE] t=1545000 data=0x3a full=0 empty=0
+[WRITE] t=1565000 data=0x3b full=0 empty=0
+[WRITE] t=1585000 data=0x3c full=0 empty=0
+[WRITE] t=1605000 data=0x3d full=0 empty=0
+[WRITE] t=1625000 data=0x3e full=0 empty=0
+[WRITE] t=1645000 data=0x3f full=0 empty=0
+
+--------------------------------------------------
+TC06 Drain Until Empty
+--------------------------------------------------
+[WRITE] t=1875000 data=0x40 full=0 empty=1
+[WRITE] t=1895000 data=0x41 full=0 empty=1
+[WRITE] t=1915000 data=0x42 full=0 empty=0
+[WRITE] t=1935000 data=0x43 full=0 empty=0
+[WRITE] t=1955000 data=0x44 full=0 empty=0
+[WRITE] t=1975000 data=0x45 full=0 empty=0
+[READ ] t=1996000 data=0x40 full=0 empty=0
+[READ ] t=2024000 data=0x41 full=0 empty=0
+[READ ] t=2052000 data=0x42 full=0 empty=0
+[READ ] t=2080000 data=0x43 full=0 empty=0
+[READ ] t=2108000 data=0x44 full=0 empty=0
+[READ ] t=2136000 data=0x45 full=0 empty=1
+
+--------------------------------------------------
+TC07 Concurrent Read Write
+--------------------------------------------------
+[WRITE] t=2365000 data=0x60 full=0 empty=1
+[WRITE] t=2385000 data=0x61 full=0 empty=1
+[WRITE] t=2405000 data=0x62 full=0 empty=0
+[WRITE] t=2425000 data=0x63 full=0 empty=0
+[WRITE] t=2445000 data=0x80 full=0 empty=0
+[READ ] t=2472000 data=0x60 full=0 empty=0
+[WRITE] t=2485000 data=0x81 full=0 empty=0
+[READ ] t=2500000 data=0x61 full=0 empty=0
+[WRITE] t=2515000 data=0x82 full=0 empty=0
+[READ ] t=2542000 data=0x62 full=0 empty=0
+[WRITE] t=2555000 data=0x83 full=0 empty=0
+[READ ] t=2570000 data=0x63 full=0 empty=0
+[WRITE] t=2585000 data=0x84 full=0 empty=0
+[READ ] t=2612000 data=0x80 full=0 empty=0
+[WRITE] t=2625000 data=0x85 full=0 empty=0
+[READ ] t=2640000 data=0x81 full=0 empty=0
+[WRITE] t=2655000 data=0x86 full=0 empty=0
+[READ ] t=2682000 data=0x82 full=0 empty=0
+[WRITE] t=2695000 data=0x87 full=0 empty=0
+[READ ] t=2710000 data=0x83 full=0 empty=0
+[READ ] t=2738000 data=0x84 full=0 empty=0
+[READ ] t=2766000 data=0x85 full=0 empty=0
+[READ ] t=2794000 data=0x86 full=0 empty=0
+[READ ] t=2822000 data=0x87 full=0 empty=1
+
+--------------------------------------------------
+TC08 Underflow Attempt
+--------------------------------------------------
+
+--------------------------------------------------
+TC09 Overflow Attempt
+--------------------------------------------------
+[WRITE] t=3345000 data=0x90 full=0 empty=1
+[WRITE] t=3365000 data=0x91 full=0 empty=1
+[WRITE] t=3385000 data=0x92 full=0 empty=0
+[WRITE] t=3405000 data=0x93 full=0 empty=0
+[WRITE] t=3425000 data=0x94 full=0 empty=0
+[WRITE] t=3445000 data=0x95 full=0 empty=0
+[WRITE] t=3465000 data=0x96 full=0 empty=0
+[WRITE] t=3485000 data=0x97 full=0 empty=0
+[WRITE] t=3505000 data=0x98 full=0 empty=0
+[WRITE] t=3525000 data=0x99 full=0 empty=0
+[WRITE] t=3545000 data=0x9a full=0 empty=0
+[WRITE] t=3565000 data=0x9b full=0 empty=0
+[WRITE] t=3585000 data=0x9c full=0 empty=0
+[WRITE] t=3605000 data=0x9d full=0 empty=0
+[WRITE] t=3625000 data=0x9e full=0 empty=0
+[WRITE] t=3645000 data=0x9f full=0 empty=0
+[READ ] t=3704000 data=0x90 full=1 empty=0
+[READ ] t=3732000 data=0x91 full=0 empty=0
+[READ ] t=3760000 data=0x92 full=0 empty=0
+[READ ] t=3788000 data=0x93 full=0 empty=0
+[READ ] t=3816000 data=0x94 full=0 empty=0
+[READ ] t=3844000 data=0x95 full=0 empty=0
+[READ ] t=3872000 data=0x96 full=0 empty=0
+[READ ] t=3900000 data=0x97 full=0 empty=0
+[READ ] t=3928000 data=0x98 full=0 empty=0
+[READ ] t=3956000 data=0x99 full=0 empty=0
+[READ ] t=3984000 data=0x9a full=0 empty=0
+[READ ] t=4012000 data=0x9b full=0 empty=0
+[READ ] t=4040000 data=0x9c full=0 empty=0
+[READ ] t=4068000 data=0x9d full=0 empty=0
+[READ ] t=4096000 data=0x9e full=0 empty=0
+[READ ] t=4124000 data=0x9f full=0 empty=1
+
+--------------------------------------------------
+TC10 Pointer Wraparound
+--------------------------------------------------
+[WRITE] t=4355000 data=0xa0 full=0 empty=1
+[WRITE] t=4375000 data=0xa1 full=0 empty=1
+[WRITE] t=4395000 data=0xa2 full=0 empty=0
+[WRITE] t=4415000 data=0xa3 full=0 empty=0
+[WRITE] t=4435000 data=0xa4 full=0 empty=0
+[WRITE] t=4455000 data=0xa5 full=0 empty=0
+[WRITE] t=4475000 data=0xa6 full=0 empty=0
+[WRITE] t=4495000 data=0xa7 full=0 empty=0
+[WRITE] t=4515000 data=0xa8 full=0 empty=0
+[WRITE] t=4535000 data=0xa9 full=0 empty=0
+[READ ] t=4558000 data=0xa0 full=0 empty=0
+[READ ] t=4586000 data=0xa1 full=0 empty=0
+[READ ] t=4614000 data=0xa2 full=0 empty=0
+[READ ] t=4642000 data=0xa3 full=0 empty=0
+[READ ] t=4670000 data=0xa4 full=0 empty=0
+[READ ] t=4698000 data=0xa5 full=0 empty=0
+[READ ] t=4726000 data=0xa6 full=0 empty=0
+[READ ] t=4754000 data=0xa7 full=0 empty=0
+[WRITE] t=4775000 data=0xb0 full=0 empty=0
+[WRITE] t=4795000 data=0xb1 full=0 empty=0
+[WRITE] t=4815000 data=0xb2 full=0 empty=0
+[WRITE] t=4835000 data=0xb3 full=0 empty=0
+[WRITE] t=4855000 data=0xb4 full=0 empty=0
+[WRITE] t=4875000 data=0xb5 full=0 empty=0
+[WRITE] t=4895000 data=0xb6 full=0 empty=0
+[WRITE] t=4915000 data=0xb7 full=0 empty=0
+[WRITE] t=4935000 data=0xb8 full=0 empty=0
+[WRITE] t=4955000 data=0xb9 full=0 empty=0
+[WRITE] t=4975000 data=0xba full=0 empty=0
+[WRITE] t=4995000 data=0xbb full=0 empty=0
+[WRITE] t=5015000 data=0xbc full=0 empty=0
+[WRITE] t=5035000 data=0xbd full=0 empty=0
+[READ ] t=5062000 data=0xa8 full=1 empty=0
+[READ ] t=5090000 data=0xa9 full=0 empty=0
+[READ ] t=5118000 data=0xb0 full=0 empty=0
+[READ ] t=5146000 data=0xb1 full=0 empty=0
+[READ ] t=5174000 data=0xb2 full=0 empty=0
+[READ ] t=5202000 data=0xb3 full=0 empty=0
+[READ ] t=5230000 data=0xb4 full=0 empty=0
+[READ ] t=5258000 data=0xb5 full=0 empty=0
+[READ ] t=5286000 data=0xb6 full=0 empty=0
+[READ ] t=5314000 data=0xb7 full=0 empty=0
+[READ ] t=5342000 data=0xb8 full=0 empty=0
+[READ ] t=5370000 data=0xb9 full=0 empty=0
+[READ ] t=5398000 data=0xba full=0 empty=0
+[READ ] t=5426000 data=0xbb full=0 empty=0
+[READ ] t=5454000 data=0xbc full=0 empty=0
+[READ ] t=5482000 data=0xbd full=0 empty=1
+
+--------------------------------------------------
+TC11 Empty Flag Deassertion Latency
+--------------------------------------------------
+[WRITE] t=5725000 data=0x5a full=0 empty=1
+[READ ] t=5790000 data=0x5a full=0 empty=1
+
+--------------------------------------------------
+TC12 Full Flag Deassertion Latency
+--------------------------------------------------
+[WRITE] t=6035000 data=0xc0 full=0 empty=1
+[WRITE] t=6055000 data=0xc1 full=0 empty=1
+[WRITE] t=6075000 data=0xc2 full=0 empty=0
+[WRITE] t=6095000 data=0xc3 full=0 empty=0
+[WRITE] t=6115000 data=0xc4 full=0 empty=0
+[WRITE] t=6135000 data=0xc5 full=0 empty=0
+[WRITE] t=6155000 data=0xc6 full=0 empty=0
+[WRITE] t=6175000 data=0xc7 full=0 empty=0
+[WRITE] t=6195000 data=0xc8 full=0 empty=0
+[WRITE] t=6215000 data=0xc9 full=0 empty=0
+[WRITE] t=6235000 data=0xca full=0 empty=0
+[WRITE] t=6255000 data=0xcb full=0 empty=0
+[WRITE] t=6275000 data=0xcc full=0 empty=0
+[WRITE] t=6295000 data=0xcd full=0 empty=0
+[WRITE] t=6315000 data=0xce full=0 empty=0
+[WRITE] t=6335000 data=0xcf full=0 empty=0
+[READ ] t=6350000 data=0xc0 full=1 empty=0
+[READ ] t=6406000 data=0xc1 full=0 empty=0
+[READ ] t=6434000 data=0xc2 full=0 empty=0
+[READ ] t=6462000 data=0xc3 full=0 empty=0
+[READ ] t=6490000 data=0xc4 full=0 empty=0
+[READ ] t=6518000 data=0xc5 full=0 empty=0
+[READ ] t=6546000 data=0xc6 full=0 empty=0
+[READ ] t=6574000 data=0xc7 full=0 empty=0
+[READ ] t=6602000 data=0xc8 full=0 empty=0
+[READ ] t=6630000 data=0xc9 full=0 empty=0
+[READ ] t=6658000 data=0xca full=0 empty=0
+[READ ] t=6686000 data=0xcb full=0 empty=0
+[READ ] t=6714000 data=0xcc full=0 empty=0
+[READ ] t=6742000 data=0xcd full=0 empty=0
+[READ ] t=6770000 data=0xce full=0 empty=0
+[READ ] t=6798000 data=0xcf full=0 empty=1
+
+--------------------------------------------------
+TC13 Fast Write Slow Read
+--------------------------------------------------
+[WRITE] t=7105000 data=0xd0 full=0 empty=1
+[WRITE] t=7117000 data=0xd1 full=0 empty=1
+[READ ] t=7186000 data=0xd0 full=0 empty=0
+[WRITE] t=7201000 data=0xd2 full=0 empty=0
+[WRITE] t=7213000 data=0xd3 full=0 empty=0
+[READ ] t=7230000 data=0xd1 full=0 empty=1
+[WRITE] t=7249000 data=0xd4 full=0 empty=1
+[WRITE] t=7261000 data=0xd5 full=0 empty=0
+[READ ] t=7296000 data=0xd2 full=0 empty=0
+[WRITE] t=7315000 data=0xd6 full=0 empty=0
+[WRITE] t=7327000 data=0xd7 full=0 empty=0
+[READ ] t=7362000 data=0xd3 full=0 empty=0
+[WRITE] t=7381000 data=0xd8 full=0 empty=0
+[WRITE] t=7393000 data=0xd9 full=0 empty=0
+[READ ] t=7428000 data=0xd4 full=0 empty=0
+[WRITE] t=7447000 data=0xda full=0 empty=0
+[WRITE] t=7459000 data=0xdb full=0 empty=0
+[READ ] t=7494000 data=0xd5 full=0 empty=0
+[WRITE] t=7513000 data=0xdc full=0 empty=0
+[WRITE] t=7525000 data=0xdd full=0 empty=0
+[READ ] t=7560000 data=0xd6 full=0 empty=0
+[WRITE] t=7579000 data=0xde full=0 empty=0
+[WRITE] t=7591000 data=0xdf full=0 empty=0
+[READ ] t=7626000 data=0xd7 full=0 empty=0
+[WRITE] t=7645000 data=0xe0 full=0 empty=0
+[WRITE] t=7657000 data=0xe1 full=0 empty=0
+[READ ] t=7692000 data=0xd8 full=0 empty=0
+[WRITE] t=7711000 data=0xe2 full=0 empty=0
+[WRITE] t=7723000 data=0xe3 full=0 empty=0
+[READ ] t=7758000 data=0xd9 full=0 empty=0
+[READ ] t=7802000 data=0xda full=0 empty=0
+[READ ] t=7846000 data=0xdb full=0 empty=0
+[READ ] t=7890000 data=0xdc full=0 empty=0
+[READ ] t=7934000 data=0xdd full=0 empty=0
+[READ ] t=7978000 data=0xde full=0 empty=0
+[READ ] t=8022000 data=0xdf full=0 empty=0
+[READ ] t=8066000 data=0xe0 full=0 empty=0
+[READ ] t=8110000 data=0xe1 full=0 empty=0
+[READ ] t=8154000 data=0xe2 full=0 empty=0
+[READ ] t=8198000 data=0xe3 full=0 empty=1
+
+--------------------------------------------------
+TC14 Fast Read Slow Write
+--------------------------------------------------
+[WRITE] t=8535000 data=0xe0 full=0 empty=1
+[READ ] t=8564000 data=0xe0 full=0 empty=1
+[WRITE] t=8601000 data=0xe1 full=0 empty=1
+[READ ] t=8630000 data=0xe1 full=0 empty=1
+[WRITE] t=8667000 data=0xe2 full=0 empty=1
+[READ ] t=8696000 data=0xe2 full=0 empty=1
+[WRITE] t=8733000 data=0xe3 full=0 empty=1
+[READ ] t=8762000 data=0xe3 full=0 empty=1
+[WRITE] t=8799000 data=0xe4 full=0 empty=1
+[READ ] t=8828000 data=0xe4 full=0 empty=1
+[WRITE] t=8865000 data=0xe5 full=0 empty=1
+[READ ] t=8894000 data=0xe5 full=0 empty=1
+[WRITE] t=8931000 data=0xe6 full=0 empty=1
+[READ ] t=8960000 data=0xe6 full=0 empty=1
+[WRITE] t=8997000 data=0xe7 full=0 empty=1
+[READ ] t=9026000 data=0xe7 full=0 empty=1
+
+--------------------------------------------------
+TC15 Mid-Stream Global Reset Recovery
+--------------------------------------------------
+[WRITE] t=9305000 data=0x21 full=0 empty=1
+[WRITE] t=9325000 data=0x22 full=0 empty=1
+[WRITE] t=9345000 data=0x23 full=0 empty=0
+[WRITE] t=9485000 data=0x55 full=0 empty=1
+[READ ] t=9536000 data=0x55 full=0 empty=1
+
+--------------------------------------------------
+TC16 Idle Stability
+--------------------------------------------------
+[WRITE] t=9765000 data=0x66 full=0 empty=1
+[READ ] t=10012000 data=0x66 full=0 empty=1
+
+--------------------------------------------------
+TC17 Data Pattern Sweep
+--------------------------------------------------
+[WRITE] t=10255000 data=0x0 full=0 empty=1
+[WRITE] t=10275000 data=0xff full=0 empty=1
+[WRITE] t=10295000 data=0x55 full=0 empty=0
+[WRITE] t=10315000 data=0xaa full=0 empty=0
+[WRITE] t=10335000 data=0x1 full=0 empty=0
+[WRITE] t=10355000 data=0x80 full=0 empty=0
+[WRITE] t=10375000 data=0x7f full=0 empty=0
+[WRITE] t=10395000 data=0xfe full=0 empty=0
+[READ ] t=10418000 data=0x0 full=0 empty=0
+[READ ] t=10446000 data=0xff full=0 empty=0
+[READ ] t=10474000 data=0x55 full=0 empty=0
+[READ ] t=10502000 data=0xaa full=0 empty=0
+[READ ] t=10530000 data=0x1 full=0 empty=0
+[READ ] t=10558000 data=0x80 full=0 empty=0
+[READ ] t=10586000 data=0x7f full=0 empty=0
+[READ ] t=10614000 data=0xfe full=0 empty=1
+
+--------------------------------------------------
+TC18 Long Burst Stress
+--------------------------------------------------
+[WRITE] t=10845000 data=0x5c full=0 empty=1
+[WRITE] t=10865000 data=0x5d full=0 empty=1
+[WRITE] t=10885000 data=0x5e full=0 empty=0
+[WRITE] t=10905000 data=0x5f full=0 empty=0
+[WRITE] t=10925000 data=0x58 full=0 empty=0
+[WRITE] t=10945000 data=0x59 full=0 empty=0
+[WRITE] t=10965000 data=0x5a full=0 empty=0
+[WRITE] t=10985000 data=0x5b full=0 empty=0
+[WRITE] t=11005000 data=0x54 full=0 empty=0
+[WRITE] t=11025000 data=0x55 full=0 empty=0
+[READ ] t=11048000 data=0x5c full=0 empty=0
+[READ ] t=11076000 data=0x5d full=0 empty=0
+[READ ] t=11104000 data=0x5e full=0 empty=0
+[READ ] t=11132000 data=0x5f full=0 empty=0
+[READ ] t=11160000 data=0x58 full=0 empty=0
+[READ ] t=11188000 data=0x59 full=0 empty=0
+[READ ] t=11216000 data=0x5a full=0 empty=0
+[READ ] t=11244000 data=0x5b full=0 empty=0
+[WRITE] t=11265000 data=0x7c full=0 empty=0
+[WRITE] t=11285000 data=0x7d full=0 empty=0
+[WRITE] t=11305000 data=0x7e full=0 empty=0
+[WRITE] t=11325000 data=0x7f full=0 empty=0
+[WRITE] t=11345000 data=0x78 full=0 empty=0
+[WRITE] t=11365000 data=0x79 full=0 empty=0
+[WRITE] t=11385000 data=0x7a full=0 empty=0
+[WRITE] t=11405000 data=0x7b full=0 empty=0
+[WRITE] t=11425000 data=0x74 full=0 empty=0
+[WRITE] t=11445000 data=0x75 full=0 empty=0
+[READ ] t=11468000 data=0x54 full=0 empty=0
+[READ ] t=11496000 data=0x55 full=0 empty=0
+[READ ] t=11524000 data=0x7c full=0 empty=0
+[READ ] t=11552000 data=0x7d full=0 empty=0
+[READ ] t=11580000 data=0x7e full=0 empty=0
+[READ ] t=11608000 data=0x7f full=0 empty=0
+[READ ] t=11636000 data=0x78 full=0 empty=0
+[READ ] t=11664000 data=0x79 full=0 empty=0
+[WRITE] t=11685000 data=0x1c full=0 empty=0
+[WRITE] t=11705000 data=0x1d full=0 empty=0
+[WRITE] t=11725000 data=0x1e full=0 empty=0
+[WRITE] t=11745000 data=0x1f full=0 empty=0
+[WRITE] t=11765000 data=0x18 full=0 empty=0
+[WRITE] t=11785000 data=0x19 full=0 empty=0
+[WRITE] t=11805000 data=0x1a full=0 empty=0
+[WRITE] t=11825000 data=0x1b full=0 empty=0
+[WRITE] t=11845000 data=0x14 full=0 empty=0
+[WRITE] t=11865000 data=0x15 full=0 empty=0
+[READ ] t=11888000 data=0x7a full=0 empty=0
+[READ ] t=11916000 data=0x7b full=0 empty=0
+[READ ] t=11944000 data=0x74 full=0 empty=0
+[READ ] t=11972000 data=0x75 full=0 empty=0
+[READ ] t=12000000 data=0x1c full=0 empty=0
+[READ ] t=12028000 data=0x1d full=0 empty=0
+[READ ] t=12056000 data=0x1e full=0 empty=0
+[READ ] t=12084000 data=0x1f full=0 empty=0
+[READ ] t=12112000 data=0x18 full=0 empty=0
+[READ ] t=12140000 data=0x19 full=0 empty=0
+[READ ] t=12168000 data=0x1a full=0 empty=0
+[READ ] t=12196000 data=0x1b full=0 empty=0
+[READ ] t=12224000 data=0x14 full=0 empty=0
+[READ ] t=12252000 data=0x15 full=0 empty=1
+
+--------------------------------------------------
+TC19 Write-Domain-Only Reset (Advanced)
+--------------------------------------------------
+[WRITE] t=12495000 data=0x71 full=0 empty=1
+[WRITE] t=12515000 data=0x72 full=0 empty=1
+[WRITE] t=12665000 data=0x73 full=0 empty=1
+[READ ] t=12714000 data=0x73 full=0 empty=1
+
+--------------------------------------------------
+TC20 Read-Domain-Only Reset (Advanced)
+--------------------------------------------------
+[WRITE] t=12945000 data=0x81 full=0 empty=1
+[WRITE] t=12965000 data=0x82 full=0 empty=1
+[READ ] t=13134000 data=0x81 full=0 empty=0
+[READ ] t=13162000 data=0x82 full=0 empty=1
+[WRITE] t=13175000 data=0x83 full=0 empty=1
+[READ ] t=13232000 data=0x83 full=0 empty=1
+
+--------------------------------------------------
+Final result
+--------------------------------------------------
+TEST PASSED
+$finish called at time : 13258 ns : File "/home/vsudhanvi/rtl-cdc-reset-datamover/tb/async_fifo_integrated_tb.sv" Line 916
+exit 0
+INFO: [Common 17-206] Exiting xsim at Sat Apr  4 16:45:05 2026...

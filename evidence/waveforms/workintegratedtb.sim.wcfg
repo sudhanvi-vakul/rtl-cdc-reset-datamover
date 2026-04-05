@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wave_config>
+   <wave_state>
+   </wave_state>
+   <db_ref_list>
+      <db_ref path="reports/run_20260403_080533/work.sim.wdb" id="1">
+         <top_modules>
+            <top_module name="async_fifo_integrated_tb" />
+         </top_modules>
+      </db_ref>
+   </db_ref_list>
+   <zoom_setting>
+      <ZoomStartTime time="0fs"></ZoomStartTime>
+      <ZoomEndTime time="13876320fs"></ZoomEndTime>
+      <Cursor1Time time="12278000fs"></Cursor1Time>
+   </zoom_setting>
+   <column_width_setting>
+      <NameColumnWidth column_width="175"></NameColumnWidth>
+      <ValueColumnWidth column_width="146"></ValueColumnWidth>
+   </column_width_setting>
+   <WVObjectSize size="26" />
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/wr_clk">
+      <obj_property name="ElementShortName">wr_clk</obj_property>
+      <obj_property name="ObjectShortName">wr_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/rd_clk">
+      <obj_property name="ElementShortName">rd_clk</obj_property>
+      <obj_property name="ObjectShortName">rd_clk</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/wr_arst_n">
+      <obj_property name="ElementShortName">wr_arst_n</obj_property>
+      <obj_property name="ObjectShortName">wr_arst_n</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/rd_arst_n">
+      <obj_property name="ElementShortName">rd_arst_n</obj_property>
+      <obj_property name="ObjectShortName">rd_arst_n</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/wr_srst_n">
+      <obj_property name="ElementShortName">wr_srst_n</obj_property>
+      <obj_property name="ObjectShortName">wr_srst_n</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/rd_srst_n">
+      <obj_property name="ElementShortName">rd_srst_n</obj_property>
+      <obj_property name="ObjectShortName">rd_srst_n</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/wr_en">
+      <obj_property name="ElementShortName">wr_en</obj_property>
+      <obj_property name="ObjectShortName">wr_en</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/rd_en">
+      <obj_property name="ElementShortName">rd_en</obj_property>
+      <obj_property name="ObjectShortName">rd_en</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/wdata">
+      <obj_property name="ElementShortName">wdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">wdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/rdata">
+      <obj_property name="ElementShortName">rdata[7:0]</obj_property>
+      <obj_property name="ObjectShortName">rdata[7:0]</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/full">
+      <obj_property name="ElementShortName">full</obj_property>
+      <obj_property name="ObjectShortName">full</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/empty">
+      <obj_property name="ElementShortName">empty</obj_property>
+      <obj_property name="ObjectShortName">empty</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/dut/u_fifo/full_next">
+      <obj_property name="ElementShortName">full_next</obj_property>
+      <obj_property name="ObjectShortName">full_next</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/dut/u_fifo/empty_next">
+      <obj_property name="ElementShortName">empty_next</obj_property>
+      <obj_property name="ObjectShortName">empty_next</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/dut/u_fifo/wr_fire">
+      <obj_property name="ElementShortName">wr_fire</obj_property>
+      <obj_property name="ObjectShortName">wr_fire</obj_property>
+   </wvobject>
+   <wvobject type="logic" fp_name="/async_fifo_integrated_tb/dut/u_fifo/rd_fire">
+      <obj_property name="ElementShortName">rd_fire</obj_property>
+      <obj_property name="ObjectShortName">rd_fire</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/dut/u_fifo/wr_ptr_bin">
+      <obj_property name="ElementShortName">wr_ptr_bin[4:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_ptr_bin[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/dut/u_fifo/wr_ptr_bin_next">
+      <obj_property name="ElementShortName">wr_ptr_bin_next[4:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_ptr_bin_next[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/dut/u_fifo/wr_ptr_gray">
+      <obj_property name="ElementShortName">wr_ptr_gray[4:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_ptr_gray[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/dut/u_fifo/wr_ptr_gray_next">
+      <obj_property name="ElementShortName">wr_ptr_gray_next[4:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_ptr_gray_next[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/dut/u_fifo/rd_ptr_bin">
+      <obj_property name="ElementShortName">rd_ptr_bin[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_ptr_bin[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/dut/u_fifo/rd_ptr_bin_next">
+      <obj_property name="ElementShortName">rd_ptr_bin_next[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_ptr_bin_next[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/dut/u_fifo/rd_ptr_gray">
+      <obj_property name="ElementShortName">rd_ptr_gray[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_ptr_gray[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/dut/u_fifo/rd_ptr_gray_next">
+      <obj_property name="ElementShortName">rd_ptr_gray_next[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_ptr_gray_next[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/dut/u_fifo/rd_ptr_gray_sync_wr">
+      <obj_property name="ElementShortName">rd_ptr_gray_sync_wr[4:0]</obj_property>
+      <obj_property name="ObjectShortName">rd_ptr_gray_sync_wr[4:0]</obj_property>
+   </wvobject>
+   <wvobject type="array" fp_name="/async_fifo_integrated_tb/dut/u_fifo/wr_ptr_gray_sync_rd">
+      <obj_property name="ElementShortName">wr_ptr_gray_sync_rd[4:0]</obj_property>
+      <obj_property name="ObjectShortName">wr_ptr_gray_sync_rd[4:0]</obj_property>
+   </wvobject>
+</wave_config>

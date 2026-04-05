@@ -1,0 +1,14 @@
+run_id: run_20260403_080533
+suite: smoke
+test: async_fifo
+tool: xsim
+top: async_fifo_integrated_tb
+waves: true
+sources:
+- rtl/sync_2ff.sv
+- rtl/reset_sync.sv
+- rtl/async_fifo.sv
+- rtl/async_fifo_reset_safe.sv
+- tb/async_fifo_integrated_tb.sv
+defines: []
+plusargs: []
