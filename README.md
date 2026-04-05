@@ -66,7 +66,8 @@ rtl-cdc-reset-mover/
 ├── tb/
 │   ├── assertions/         
 │   ├── async_fifo_tb.sv
-|   ├── async_fifo_integrated_tb.sv    
+|   ├── async_fifo_integrated_tb.sv   
+|   ├── async_fifo_integrated_adv_tb.sv
 │   └── tests/            
 ├── tests/                
 ├── tools/            
