@@ -10,39 +10,40 @@ A reset-safe multi-clock data mover built in **SystemVerilog** using:
 - **reset synchronizers** for safe per-domain reset release
 - a **Gray-code asynchronous FIFO** for multi-bit transfer across unrelated clocks
 
-This project demonstrates practical RTL design for **clock-domain crossing**, **reset safety**, and **structured verification** under mismatched clocks, reset skew, and traffic stress.
+This project demonstrates practical RTL design for **clock-domain crossing**, **reset safety**, and **structured verification** under mismatched clocks, reset skew, burst traffic, boundary conditions, and stress scenarios.
 
 ---
 
 ## Table of Contents
 
-- Overview
-- Project Goals
-- Architecture
-- Implemented Modules
-- Key Design Ideas
-- Verification Strategy
-- Testcase Coverage
-- Waveform Inspection Goals
-- Repository Structure
-- How to Run
-- Expected Outputs
-- Key Learnings
-- Future Improvements
-- Summary
+- [Overview](#overview)
+- [Project Goals](#project-goals)
+- [Architecture](#architecture)
+- [Implemented Modules](#implemented-modules)
+- [Key Design Ideas](#key-design-ideas)
+- [Verification Strategy](#verification-strategy)
+- [Test Results Summary](#test-results-summary)
+- [Testcase Coverage](#testcase-coverage)
+- [Waveform Inspection Goals](#waveform-inspection-goals)
+- [Repository Structure](#repository-structure)
+- [How to Run](#how-to-run)
+- [Expected Outputs](#expected-outputs)
+- [Key Learnings](#key-learnings)
+- [Future Improvements](#future-improvements)
+- [Summary](#summary)
 
 ---
 
 ## Overview
 
-Crossing signals between unrelated clock domains is one of the most common and most error-prone challenges in digital design.  
+Crossing signals between unrelated clock domains is one of the most common and error-prone problems in digital design.
 This project builds a safe producer-consumer path between independent write and read domains by combining standard CDC techniques into one reusable RTL block.
 
 The design supports:
 - safe transfer of **single-bit control signals**
 - safe release of reset within each clock domain
 - safe transfer of **multi-bit data** using an asynchronous FIFO
-- verification across different clock ratios and reset sequences
+- verification across different clock ratios, reset events, and traffic patterns
 
 This makes the project a strong foundational block for larger **SoC**, **subsystem**, and **multi-clock RTL** designs.
 
@@ -52,7 +53,7 @@ This makes the project a strong foundational block for larger **SoC**, **subsyst
 
 - Build a reset-safe multi-clock data path
 - Safely transfer data across unrelated write and read clocks
-- Use industry-standard CDC techniques for control and data paths
+- Use standard CDC techniques for both control and data paths
 - Verify correctness under clock-ratio stress and reset skew
 - Check ordering, stability, empty/full behavior, and recovery from reset events
 - Produce structured verification evidence using logs and waveforms
@@ -61,6 +62,7 @@ This makes the project a strong foundational block for larger **SoC**, **subsyst
 
 ## Architecture
 
+```text
                 +-------------------+
  write domain   |   reset_sync      |
  wr_arst_n ---> | async assert      | ---> wr_srst_n
@@ -107,7 +109,7 @@ This makes the project a strong foundational block for larger **SoC**, **subsyst
 Two-flop synchronizer for single-bit CDC signals.
 
 **Purpose**
-- safely capture single-bit signals in a destination clock domain
+- safely capture a single-bit signal in a destination clock domain
 - reduce metastability propagation risk
 
 ---
@@ -142,19 +144,10 @@ Gray-pointer asynchronous FIFO with:
 Basic self-checking FIFO testbench.
 
 #### `tb/async_fifo_integrated_tb.sv`
-Main integrated directed testbench covering:
-- reset behavior
-- write/read ordering
-- empty/full behavior
-- interleaved traffic
-- clock-ratio scenarios
+Main integrated directed testbench covering reset, ordering, flags, latency, burst traffic, and clock-ratio scenarios.
 
 #### `tb/async_fifo_integrated_adv_tb.sv`
-Advanced verification and waveform-oriented debug testbench covering:
-- stress scenarios
-- pointer synchronization visibility
-- Gray-code inspection
-- stability checks
+Advanced verification and waveform-oriented debug testbench covering long stress runs and domain-specific reset scenarios.
 
 ---
 
@@ -167,14 +160,14 @@ A 2-flop synchronizer is appropriate for **single-bit control signals** crossing
 A simple synchronizer is **not sufficient for multi-bit data streams**. For multi-bit transfers across unrelated clocks, an asynchronous FIFO is the standard safe architecture.
 
 ### Why Gray-coded pointers?
-Binary counters can change multiple bits at once. When sampled across clock domains, that can cause unsafe intermediate observations.  
-Gray code changes only **one bit per increment**, making pointer synchronization much safer.
+Binary counters can change multiple bits at once. When sampled across clock domains, that can cause unsafe intermediate observations.
+Gray code changes only **one bit per increment**, making pointer synchronization safer.
 
 ### Why reset synchronization?
 Direct reset release can violate timing relative to a clock edge. Using synchronized release ensures each domain exits reset cleanly and predictably.
 
 ### Why waveform inspection matters?
-Self-checking tests prove functionality, but waveforms help confirm the **internal CDC behavior**:
+Self-checking tests prove functional correctness, but waveforms help confirm the **internal CDC behavior**:
 - pointer propagation delay
 - flag transitions
 - Gray-code movement
@@ -186,54 +179,66 @@ Self-checking tests prove functionality, but waveforms help confirm the **intern
 
 Verification uses **directed self-checking simulation** plus **waveform-based inspection**.
 
-### What is checked functionally?
+### Functional checks include
 - reset default state
-- proper reset deassertion behavior
-- correct write/read ordering
-- empty and full behavior
-- fill/drain behavior
-- simultaneous read and write
-- interleaved traffic correctness
-- recovery when one side resets during activity
-- operation under different clock ratios
+- reset synchronizer deassertion behavior
+- single-transfer and multi-transfer data correctness
+- fill and drain boundary behavior
+- concurrent read/write operation
+- underflow and overflow handling
+- pointer wraparound correctness
+- empty and full flag deassertion latency
+- fast-write slow-read stress
+- fast-read slow-write stress
+- mid-stream reset recovery
 - idle stability
 - data-pattern robustness
+- long-burst stress behavior
+- write-domain-only and read-domain-only reset recovery
 
-### What is checked structurally in waveforms?
-- write pointer movement in write clock domain
-- read pointer movement in read clock domain
-- synchronized visibility of pointers in opposite domains
-- expected CDC latency
-- one-bit-at-a-time Gray transitions
-- flag stability and boundary behavior
-- correct synchronized reset release
+### Structural waveform checks include
+- pointer increments in the correct domains
+- synchronized visibility of pointers in the opposite domains
+- expected CDC latency for flag and pointer behavior
+- clean reset deassertion on local clock edges
+- stable flag behavior around empty/full boundaries
+- no unintended changes during idle windows
+
+---
+
+## Test Results Summary
+
+- **Total testcases:** 20
+- **Pass:** 20
+- **Fail:** 0
+- **Status:** Complete functional regression pass for the current directed verification suite
 
 ---
 
 ## Testcase Coverage
 
-| Test ID | Name                                | Stat |
-|---------|-------------------------------------|----- |
-| TC01    | Reset Default State                 | PASS |
-| TC02    | Reset Synchronizer Deassertion      | PASS |
-| TC03    | Single Write Single Read            | PASS |
-| TC04    | Multiple Write Multiple Read        | PASS |
-| TC05    | Fill Until Full                     | PASS |
-| TC06    | Drain Until Empty                   | PASS |
-| TC07    | Concurrent Read Write               | PASS |
-| TC08    | Underflow Attempt                   | PASS |
-| TC09    | Overflow Attempt                    | PASS |
-| TC10    | Pointer Wraparound                  | PASS |
-| TC11    | Empty Flag Deassertion Latency      | PASS |
-| TC12    | Full Flag Deassertion Latency       | PASS |
-| TC13    | Fast Write Slow Read                | PASS |
-| TC14    | Fast Read Slow Write                | PASS |
-| TC15    | Mid-Stream Global Reset Recovery    | PASS |
-| TC16    | Idle Stability                      | PASS |
-| TC17    | Data Pattern Sweep                  | PASS |
-| TC18    | Long Burst Stress                   | PASS |
-| TC19    | Write-Domain-Only Reset (Advanced)  | PASS |
-| TC20    | Read-Domain-Only Reset (Advanced)   | PASS |
+| Test ID | Name | Status |
+|---------|------|--------|
+| TC01 | Reset Default State | PASS |
+| TC02 | Reset Synchronizer Deassertion | PASS |
+| TC03 | Single Write Single Read | PASS |
+| TC04 | Multiple Write Multiple Read | PASS |
+| TC05 | Fill Until Full | PASS |
+| TC06 | Drain Until Empty | PASS |
+| TC07 | Concurrent Read Write | PASS |
+| TC08 | Underflow Attempt | PASS |
+| TC09 | Overflow Attempt | PASS |
+| TC10 | Pointer Wraparound | PASS |
+| TC11 | Empty Flag Deassertion Latency | PASS |
+| TC12 | Full Flag Deassertion Latency | PASS |
+| TC13 | Fast Write Slow Read | PASS |
+| TC14 | Fast Read Slow Write | PASS |
+| TC15 | Mid-Stream Global Reset Recovery | PASS |
+| TC16 | Idle Stability | PASS |
+| TC17 | Data Pattern Sweep | PASS |
+| TC18 | Long Burst Stress | PASS |
+| TC19 | Write-Domain-Only Reset (Advanced) | PASS |
+| TC20 | Read-Domain-Only Reset (Advanced) | PASS |
 
 ---
 
@@ -245,20 +250,23 @@ Waveform evidence is used to inspect:
 - read pointer increment behavior
 - synchronized pointer propagation across domains
 - expected CDC delay between source and synchronized destination
-- Gray-code transitions changing one bit at a time
-- empty and full flag transitions
+- empty flag deassertion behavior after write-side activity
+- full flag deassertion behavior after read-side activity
+- pointer wraparound behavior
 - idle windows with no unintended activity
 
 Suggested screenshot categories:
 - reset default state
-- first write
-- first read
-- empty boundary
-- full boundary
-- simultaneous read/write
+- reset synchronizer release timing
+- first write and first read behavior
+- fill until full
+- drain until empty
+- concurrent read/write activity
+- pointer wraparound
+- flag deassertion latency
 - fast-write slow-read stress
-- slow-write fast-read stress
-- pointer synchronization across domains
+- fast-read slow-write stress
+- mid-stream reset recovery
 - idle stability
 
 ---
@@ -331,7 +339,7 @@ Example artifact types:
 ## What This Project Demonstrates
 
 - safe **single-bit CDC**
-- safe **multi-bit CDC** using async FIFO
+- safe **multi-bit CDC** using an async FIFO
 - **Gray-code pointer** methodology
 - **reset-safe release** in multi-clock logic
 - structured **RTL verification**
@@ -343,11 +351,11 @@ Example artifact types:
 ## Key Learnings
 
 - Single-bit and multi-bit CDC require different design approaches
-- Reset behavior must be treated carefully in multi-clock designs
+- Reset behavior must be handled carefully in multi-clock designs
 - Gray-coded pointers are central to async FIFO safety
-- Verification should check not only outputs, but also internal CDC behavior
+- Verification should check both outputs and internal CDC behavior
 - Clock-ratio stress testing reveals corner cases not visible in simple equal-clock tests
-- Waveform evidence is essential for explaining CDC timing and pointer propagation
+- Boundary cases such as underflow, overflow, and wraparound are critical for FIFO confidence
 
 ---
 
@@ -364,4 +372,4 @@ Example artifact types:
 
 ## Summary
 
-This project implements a **reset-safe multi-clock data mover** using synchronizers, reset synchronization, and a Gray-code asynchronous FIFO. It demonstrates core CDC design practice and structured verification for multi-clock systems, making it a strong foundational RTL project for more advanced subsystem and SoC integration work.
+This project implements a **reset-safe multi-clock data mover** using synchronizers, reset synchronization, and a Gray-code asynchronous FIFO. The design and verification flow demonstrate practical CDC methodology for multi-clock systems and provide a strong foundational RTL project for larger subsystem and SoC integration work.
