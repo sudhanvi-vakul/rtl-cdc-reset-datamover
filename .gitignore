@@ -60,9 +60,9 @@ reports/run_*/
 # Calibre runsets
 .runset.calibre.*
 
-# Keep everything in evidence
-!evidence/
-!evidence/**
-!evidence/**/*.xilwvdat
-!evidence/**/*.wdb
-!evidence/**/*.wcfg
+# Keep everything in reports
+!reports/
+!reports/**
+!reports/**/*.xilwvdat
+!reports/**/*.wdb
+!reports/**/*.wcfg
